@@ -32,7 +32,7 @@ public class TransactionController {
             return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
         } catch (AccountNotFoundException | OperationTypeNotFoundException e) {
             return ResponseEntity.notFound().build();
-        } catch (ValidationException | IllegalArgumentException e){
+        } catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().build();
         } catch (Exception e){
             return ResponseEntity.internalServerError().build();
