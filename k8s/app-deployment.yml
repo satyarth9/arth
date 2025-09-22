@@ -14,10 +14,28 @@ spec:
     spec:
       containers:
         - name: arth-banking
-          image: arth-banking:v0.4
+          image: arth-banking:vx11
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: SPRING_PROFILES_ACTIVE
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres:5432/arth"
+            - name: ARTH_DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: ARTH_DB_USERNAME
+            - name: ARTH_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: ARTH_DB_PASSWORD
           livenessProbe:
             httpGet:
               path: /actuator/health

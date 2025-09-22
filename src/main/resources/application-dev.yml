@@ -6,7 +6,7 @@ spring:
       ddl-auto: update
     show-sql: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/arth
+    url: jdbc:postgresql://postgres:5432/arth
     username: ${ARTH_DB_USERNAME}
     password: ${ARTH_DB_PASSWORD}
     driver-class-name: org.postgresql.Driver

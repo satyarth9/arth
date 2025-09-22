@@ -19,14 +19,20 @@ spec:
             - name: POSTGRES_DB
               value: arth
             - name: POSTGRES_USER
-              value: ${ARTH_DB_USERNAME}
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: ARTH_DB_USERNAME
             - name: POSTGRES_PASSWORD
-              value: ${ARTH_DB_PASSWORD}
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: ARTH_DB_PASSWORD
           ports:
             - containerPort: 5432
           volumeMounts:
             - name: postgres-storage
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql/1/data
       volumes:
         - name: postgres-storage
           hostPath:
