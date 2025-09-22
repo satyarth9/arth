@@ -98,7 +98,7 @@ public class AccountControllerTest {
 
         ResponseEntity<AccountResponseDto> result = accountController.getById(1L);
 
-        assertEquals(HttpStatus.CREATED, result.getStatusCode());
+        assertEquals(HttpStatus.OK, result.getStatusCode());
         assertNotNull(result.getBody());
         verify(accountService).getAccount(anyLong());
     }

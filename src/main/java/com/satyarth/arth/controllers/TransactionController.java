@@ -1,13 +1,11 @@
 package com.satyarth.arth.controllers;
 
-import com.satyarth.arth.dto.AccountResponseDto;
 import com.satyarth.arth.dto.TransactionCreationDto;
 import com.satyarth.arth.dto.TransactionResponseDto;
 import com.satyarth.arth.exceptions.AccountNotFoundException;
 import com.satyarth.arth.exceptions.OperationTypeNotFoundException;
 import com.satyarth.arth.services.TransactionService;
 import jakarta.validation.Valid;
-import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

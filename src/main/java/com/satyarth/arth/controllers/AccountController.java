@@ -36,7 +36,7 @@ public class AccountController {
     public ResponseEntity<AccountResponseDto> getById(@PathVariable Long accountId){
         try {
             AccountResponseDto responseDto = accountService.getAccount(accountId);
-            return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
         } catch (AccountNotFoundException e){
             return ResponseEntity.notFound().build();
         } catch (IllegalArgumentException e) {
