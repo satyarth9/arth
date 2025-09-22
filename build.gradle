@@ -3,7 +3,7 @@ plugins {
 	id 'war'
 	id 'org.springframework.boot' version '3.5.6'
 	id 'io.spring.dependency-management' version '1.1.7'
-	id 'org.sonarqube' version '4.4.1.3373'
+	id 'org.sonarqube' version '6.3.1.5724'
 }
 
 group = 'com.satyarth'
@@ -36,10 +36,7 @@ dependencies {
 sonar {
 	properties {
 		property "sonar.projectKey", "arth-banking"
-		property "sonar.projectName", "Arth Banking"
-		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.organization", "satyarth9"
-		property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+		property "sonar.organization", "satyarth-organization"
 	}
 }
 
