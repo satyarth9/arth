@@ -5,6 +5,10 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+env:
+  SPRING_PROFILES_ACTIVE: dev
+  ARTH_DB_USERNAME: user
+  ARTH_DB_PASSWORD: password
 jobs:
   build:
     name: Build and analyze
