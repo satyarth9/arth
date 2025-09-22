@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arth-banking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arth-banking
+  template:
+    metadata:
+      labels:
+        app: arth-banking
+    spec:
+      containers:
+        - name: arth-banking
+          image: arth-banking:v0.4
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 10
