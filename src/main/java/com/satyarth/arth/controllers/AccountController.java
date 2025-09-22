@@ -22,27 +22,13 @@ public class AccountController {
 
     @PostMapping("")
     public ResponseEntity<AccountResponseDto> createAccount(@Valid @RequestBody AccountCreationDto accountCreationDto){
-        try {
-            AccountResponseDto responseDto = accountService.create(accountCreationDto);
-            return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
-        } catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().build();
-        } catch (Exception e){
-            return ResponseEntity.internalServerError().build();
-        }
+        AccountResponseDto responseDto = accountService.create(accountCreationDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 
     @GetMapping("/{accountId}")
     public ResponseEntity<AccountResponseDto> getById(@PathVariable Long accountId){
-        try {
-            AccountResponseDto responseDto = accountService.getAccount(accountId);
-            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
-        } catch (AccountNotFoundException e){
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
-        } catch (Exception e){
-            return ResponseEntity.internalServerError().build();
-        }
+        AccountResponseDto responseDto = accountService.getAccount(accountId);
+        return ResponseEntity.status(HttpStatus.OK).body(responseDto);
     }
 }

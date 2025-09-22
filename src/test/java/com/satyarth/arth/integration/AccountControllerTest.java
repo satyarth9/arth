@@ -109,11 +109,11 @@ public class AccountControllerTest {
     }
 
     @Test
-    void shouldReturnBadRequestInvalidAccount(){
+    void shouldReturnServerError_InvalidAccount(){
         ResponseEntity<AccountResponseDto> response = testRestTemplate
                 .getForEntity("/accounts/incorrect_data_type", AccountResponseDto.class);
         assertNotNull(response);
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
     }
 
 

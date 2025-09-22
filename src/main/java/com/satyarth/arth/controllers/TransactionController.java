@@ -25,15 +25,7 @@ public class TransactionController {
 
     @PostMapping("")
     public ResponseEntity<TransactionResponseDto> createTxn(@Valid @RequestBody TransactionCreationDto transactionCreationDto){
-        try {
-            TransactionResponseDto responseDto = transactionService.createTxn(transactionCreationDto);
-            return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
-        } catch (AccountNotFoundException | OperationTypeNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().build();
-        } catch (Exception e){
-            return ResponseEntity.internalServerError().build();
-        }
+        TransactionResponseDto responseDto = transactionService.createTxn(transactionCreationDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 }
