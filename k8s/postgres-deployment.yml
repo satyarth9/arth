@@ -1,40 +1,40 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: postgres
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      containers:
-        - name: postgres
-          image: postgres:15
-          env:
-            - name: POSTGRES_DB
-              value: arth
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: db-credentials
-                  key: ARTH_DB_USERNAME
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-credentials
-                  key: ARTH_DB_PASSWORD
-          ports:
-            - containerPort: 5432
-          volumeMounts:
-            - name: postgres-storage
-              mountPath: /var/lib/postgresql/1/data
-      volumes:
-        - name: postgres-storage
-          hostPath:
-            path: /tmp/postgres-data
-            type: DirectoryOrCreate
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: postgres
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: postgres
+#  template:
+#    metadata:
+#      labels:
+#        app: postgres
+#    spec:
+#      containers:
+#        - name: postgres
+#          image: postgres:15
+#          env:
+#            - name: POSTGRES_DB
+#              value: arth
+#            - name: POSTGRES_USER
+#              valueFrom:
+#                secretKeyRef:
+#                  name: db-credentials
+#                  key: ARTH_DB_USERNAME
+#            - name: POSTGRES_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: db-credentials
+#                  key: ARTH_DB_PASSWORD
+#          ports:
+#            - containerPort: 5432
+#          volumeMounts:
+#            - name: postgres-storage
+#              mountPath: /var/lib/postgresql/1/data
+#      volumes:
+#        - name: postgres-storage
+#          hostPath:
+#            path: /tmp/postgres-data
+#            type: DirectoryOrCreate

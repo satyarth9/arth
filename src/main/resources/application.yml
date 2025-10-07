@@ -3,17 +3,18 @@ spring:
     name: Arth-Banking
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
+    database: postgresql
   datasource:
-    url: jdbc:postgresql://postgres:5433/arth
-    username: ${ARTH_DB_USERNAME}
-    password: ${ARTH_DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/arth
+    username: user
+    password: userpass
     driver-class-name: org.postgresql.Driver
-
 
 logging:
   level:
     org.springframework.web: DEBUG
     org.apache.tomcat.util.http: DEBUG
     web: DEBUG
+testcontainers.reuse.enable: true

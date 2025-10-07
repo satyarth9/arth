@@ -1,29 +1,29 @@
-spring:
-  application:
-    name: Arth-Banking
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-  datasource:
-    url: jdbc:postgresql://postgres:5432/arth
-    username: ${ARTH_DB_USERNAME}
-    password: ${ARTH_DB_PASSWORD}
-    driver-class-name: org.postgresql.Driver
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  endpoint:
-    health:
-      show-details: always
-  security:
-    enabled: false
-
-logging:
-  level:
-    org.springframework.web: DEBUG
-    org.apache.tomcat.util.http: DEBUG
-    web: DEBUG
+#spring:
+#  application:
+#    name: Arth-Banking
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  datasource:
+#    url: jdbc:postgresql://postgres:5432/arth
+#    username: ${ARTH_DB_USERNAME}
+#    password: ${ARTH_DB_PASSWORD}
+#    driver-class-name: org.postgresql.Driver
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health,info
+#  endpoint:
+#    health:
+#      show-details: always
+#  security:
+#    enabled: false
+#
+#logging:
+#  level:
+#    org.springframework.web: DEBUG
+#    org.apache.tomcat.util.http: DEBUG
+#    web: DEBUG

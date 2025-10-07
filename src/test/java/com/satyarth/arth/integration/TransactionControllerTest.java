@@ -34,7 +34,7 @@ public class TransactionControllerTest {
 
     @Container
     @ServiceConnection
-    static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:15");
+    static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:16");
 
     @Autowired
     TestRestTemplate testRestTemplate;
