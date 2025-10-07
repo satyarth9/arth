@@ -1,10 +1,9 @@
 FROM gradle:jdk21 AS build
-RUN mkdir /workplace
 WORKDIR /workplace
-COPY build.gradle /workplace
-COPY settings.gradle /workplace
-COPY src /workplace/src
-RUN gradle bootJar
+COPY build.gradle settings.gradle ./
+RUN gradle dependencies --no-daemon
+COPY src ./src
+RUN gradle bootJar --no-daemon
 
 
 FROM openjdk:21-jdk
